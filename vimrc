@@ -200,11 +200,8 @@ function! Tabstyle_spaces()
   set expandtab
 endfunction
 
-if hostname() == "Misha-Granins-MacBook-Air.local"
-  call Tabstyle_tabs()
-else
-  call Tabstyle_spaces()
-endif
+" Use spaces by default (removed hostname-specific check)
+call Tabstyle_spaces()
 
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
@@ -947,7 +944,7 @@ let coffee_no_reserved_words_error = 1
 "js check
 cabbr js !js ~/bin/js/runjslint.js "`cat %`" \| ~/bin/python/format_lint_output.py
 " Additional  my additions to vimrc  ****************************
-so ~/txt/personal/myStuff.txt			
+" Personal config removed for public version			
  "------------------------------------------------------------------------
 "experimental try to switch off camel case syntax. 
 syn match NoSpell /\u\l\+\%(\u\l\+\)\+/ contains=@NoSpell
@@ -973,5 +970,5 @@ au Syntax * syn match CamelCase "\<\%(\u\l*\)\{2,}\>" transparent containedin=.*
     omap <silent> ie <Plug>CamelCaseMotion_ie
     xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-:cd ~/txt
+" Personal directory reference removed
 
